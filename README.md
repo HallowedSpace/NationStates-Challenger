@@ -6,7 +6,7 @@ i recommend tampermonkey so go [HERE](https://www.tampermonkey.net/index.php?loc
 Then in the extension, press add a new userscript <img src="https://github.com/HallowedSpace/NationStates-Challenger/blob/main/createscript.png">
 
 copy and paste all of the code from [HERE](https://raw.githubusercontent.com/HallowedSpace/NationStates-Challenger/main/script.js) into the editor (make sure before pasting all of the comments at the top are gone before you copy paste).
-<img src="[https://github.com/HallowedSpace/NationStates-Challenger/blob/main/createscript.png](https://github.com/HallowedSpace/NationStates-Challenger/blob/main/editor.png)">
+<img src="https://github.com/HallowedSpace/NationStates-Challenger/blob/main/editor.png">
 
 Then go in the top-left, press file, and save. Then go to [HERE](https://www.nationstates.net/page=challenge/matchmaker=1) to begin and it will automatically start challenging. 
 
