@@ -12,4 +12,4 @@ Then go in the top-left, press file, and save. Then go to [HERE](https://www.nat
 
 
 ## Note for the technologically intermediate or higher
-(if you arent a skid then feel free to change and make pr here if you make it better because it is lazy and could be optimized)
+(feel free to change and make pr here if you make it better because it is lazy and could be optimized)
