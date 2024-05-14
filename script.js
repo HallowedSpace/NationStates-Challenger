@@ -10,21 +10,23 @@
 (function() {
     'use strict';
     let regex = /[a-zA-Z]\/(.*)(=)(0|1)/m;
+    let qs = (a,b) => document[`querySelector${b ?"All":""}`](a);
     let isValid = regex.test(window.location.href)&&(window.location.href).includes("page=challenge");
-    let inChallenge = (document.querySelector("#trumps-scorecard-round-2") != null);
+    let inChallenge = (document.querySelector("#trumps-gameid") != null);
+    let isError = (document.querySelector("#cloudflare-error-box") != null)
      if(isValid){
-         let difference = (document.querySelectorAll("h2")[1].textContent.includes("pts")) ? +(document.querySelectorAll("h2")[1].textContent.split(": ")[1].replace(" pts","").replace("+","")) : 0;
-         if(difference<=0&&difference>-3){
-            document.querySelector("input[type=submit]").click();
+         let difference = (qs("h2",1)[1].textContent.includes("pts")) ? +(qs("h2",1)[1].textContent.split(": ")[1].replace(" pts","").replace("+","")) : 0;
+         if(difference<=0&&difference>=-4){//edit to your liking
+            qs("input[type=submit]").click();
          }
-         else setTimeout(()=>{location.reload()},150);
+         else location.reload();
     }
     if(inChallenge){
-        let isDefeat = document.querySelector("#trumps-result").children[0].textContent.toLocaleLowerCase().includes("defeat");
-        let isTie = document.querySelector("#trumps-result").children[0].textContent.toLocaleLowerCase().includes("tie");
+        let isDefeat = qs("#trumps-result").children[0].textContent.toLocaleLowerCase().includes("defeat");
+        let isTie = qs("#trumps-result").children[0].textContent.toLocaleLowerCase().includes("tie");
         if(isDefeat||isTie)location.reload();
         else{
-            fetch(`https://www.nationstates.net/page=ajax2/a=finalize_challenge/gid=${document.querySelector("#trumps-gameid").textContent}`, {
+            fetch(`https://www.nationstates.net/page=ajax2/a=finalize_challenge/gid=${qs("#trumps-gameid").textContent}`, {
                 "headers": {
                     "accept": "*/*",
                     "accept-language": "en-US,en;q=0.9,hi;q=0.8",
@@ -48,5 +50,8 @@
             });
             window.location.href = "https://www.nationstates.net/page=challenge/matchmaker=1";
         }
+    }
+    if(isError){
+        window.location.href = "https://www.nationstates.net/page=challenge/matchmaker=1";
     }
 })();
