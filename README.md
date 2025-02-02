@@ -1,5 +1,5 @@
 # IMPORTANT PLEASE READ!
-This script does not conform to rules of NationStates and it will get you banned from the challenge mini-game if you use it
+This script does not conform to rules of NationStates and it may get you banned from the challenge mini-game if you use it
 
 I am not responsible for your actions with this script, you are. 
 
